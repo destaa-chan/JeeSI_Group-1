@@ -1,5 +1,5 @@
 # JeeSI_Group-1
-Proyek sederhana yang dibuat untuk Ulangan Akhir Semester Mata Kuliah Perancangan dan Pengembangan Perangkat Lunak
+Aplikasi berbasis web yang digunakan untuk membantu perusahaan mencari calon pekerja berdasarkan data alumni atau lulusan, dengan mempertimbangkan minat studi, kompetensi, dan kriteria yang dibutuhkan perusahaan.
 
 ## Anggota Kelompok
 - Desta Rifqi Aunur Rahman (10241020) - Leader & Front-end
@@ -17,7 +17,7 @@ Proyek sederhana yang dibuat untuk Ulangan Akhir Semester Mata Kuliah Perancanga
 - /STD: dokumen pengujian perangkat lunak
 
 ## Persiapan
-1. 1. Clone repository.
+1. Clone repository.
 2. Siapkan web server dan database lokal.
 3. Buat database sesuai skrip di folder database.
 4. Sesuaikan konfigurasi database lokal.
