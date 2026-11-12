@@ -2,11 +2,15 @@
 
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TentangController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect()->route('login');
 });
+
+// Halaman Tentang (anggota kelompok), dapat diakses tanpa login.
+Route::get('/tentang', TentangController::class)->name('tentang');
 
 // Pintu dashboard: mengarahkan user ke dashboard sesuai role (UI-002).
 Route::get('/dashboard', function () {
