@@ -14,6 +14,17 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            // Palette: Cocoa Kiss (sama dengan resources/css/admin/admin.css)
+            colors: {
+                cocoa: {
+                    bitter: '#362320',  // Bitter Cocoa
+                    wine: '#57091d',    // Wine Cherry
+                    cherry: '#890524',  // Cherry Red
+                    truffle: '#6a4e4a', // Truffle Dust
+                    icing: '#d0d1c9',   // Icing Mist
+                    mist: '#ecede8',    // tint terang Icing Mist (permukaan kartu)
+                },
+            },
         },
     },
 
