@@ -23,6 +23,15 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <div class="mt-4">
+            <x-input-label for="role" :value="__('Daftar sebagai')" />
+            <select id="role" name="role" required>
+                <option value="alumni" @selected(old('role', 'alumni') === 'alumni')>Alumni</option>
+                <option value="perusahaan" @selected(old('role') === 'perusahaan')>Perusahaan</option>
+            </select>
+            <x-input-error :messages="$errors->get('role')" class="mt-2" />
+        </div>
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
