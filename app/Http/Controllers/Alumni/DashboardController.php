@@ -6,11 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Alumni;
 use App\Models\Lowongan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
+    use HitungKecocokan;
+
     /** Kolom profil yang dihitung untuk "Kelengkapan profil" (tbl_alumni). */
     private const KOLOM_PROFIL = [
         'nama_lengkap', 'nim', 'program_studi', 'pendidikan', 'kompetensi', 'minat_studi',
@@ -57,31 +58,5 @@ class DashboardController extends Controller
             ->count();
 
         return (int) round($terisi / count(self::KOLOM_PROFIL) * 100);
-    }
-
-    /**
-     * Kesesuaian Kompetensi + Minat Studi alumni dengan Kriteria Kandidat:
-     * persentase istilah alumni yang muncul pada kriteria lowongan.
-     */
-    private function hitungKecocokan(?Alumni $alumni, Lowongan $lowongan): int
-    {
-        if (! $alumni) {
-            return 0;
-        }
-
-        $istilah = collect(preg_split('/[,;\n]+/', $alumni->kompetensi.','.$alumni->minat_studi))
-            ->map(fn ($teks) => Str::lower(trim($teks)))
-            ->filter()
-            ->unique()
-            ->values();
-
-        if ($istilah->isEmpty()) {
-            return 0;
-        }
-
-        $kriteria = Str::lower($lowongan->kriteria_kandidat);
-        $cocok = $istilah->filter(fn (string $kata) => str_contains($kriteria, $kata))->count();
-
-        return (int) round($cocok / $istilah->count() * 100);
     }
 }
