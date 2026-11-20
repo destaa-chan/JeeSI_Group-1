@@ -10,6 +10,8 @@ use Illuminate\View\View;
 
 class LowonganController extends Controller
 {
+    use HitungKecocokan;
+
     public function show(Lowongan $lowongan): View
     {
         abort_unless($lowongan->status_verifikasi === 'approved', 404);
@@ -19,6 +21,8 @@ class LowonganController extends Controller
 
         return view('alumni.lowongan.show', [
             'lowongan' => $lowongan,
+            'alumni' => $alumni,
+            'cocok' => $this->hitungKecocokan($alumni, $lowongan),
             'portofolio' => $alumni?->portofolio()->latest('created_at')->get() ?? collect(),
             'sudahMelamar' => $alumni?->lamaran()->where('id_lowongan', $lowongan->id_lowongan)->exists() ?? false,
         ]);

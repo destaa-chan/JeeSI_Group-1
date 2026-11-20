@@ -462,6 +462,107 @@ textarea.form-control {
     margin-bottom: 14px;
 }
 
+/* ---------- Form portofolio (UI-005) ---------- */
+.form-control--file {
+    padding: 5px 8px;
+    cursor: pointer;
+}
+
+.form-control--file::file-selector-button {
+    margin-right: 10px;
+    padding: 3px 10px;
+    font: inherit;
+    font-size: 11px;
+    color: var(--text);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.link-danger {
+    padding: 0;
+    font: inherit;
+    color: var(--cherry-red);
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.link-danger:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Badge status lamaran (UI-006) ---------- */
+.badge-status {
+    display: inline-block;
+    padding: 1px 10px;
+    font-size: 11px;
+    border: 1px solid var(--truffle-dust);
+    border-radius: 999px;
+    color: var(--truffle-dust);
+    white-space: nowrap;
+}
+
+.badge-status--dilihat {
+    border-color: var(--bitter-cocoa);
+    color: var(--bitter-cocoa);
+}
+
+.badge-status--diundang,
+.badge-status--diterima {
+    border-color: var(--success-border);
+    background: var(--success-bg);
+    color: var(--success-text);
+}
+
+.badge-status--ditolak {
+    border-color: var(--danger-border);
+    background: var(--danger-bg);
+    color: var(--danger-text);
+}
+
+/* ---------- Detail lowongan (UI-003) ---------- */
+.detail-label {
+    margin: 12px 0 2px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.detail-text {
+    margin: 0;
+    font-size: 12px;
+    white-space: pre-line;
+}
+
+.detail-match {
+    margin: 12px 0 0;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.choice-list {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.choice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.choice input {
+    accent-color: var(--wine-cherry);
+}
+
 /* ---------- Responsif ---------- */
 @media (max-width: 640px) {
     .alumni-nav__inner {

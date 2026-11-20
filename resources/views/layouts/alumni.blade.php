@@ -23,7 +23,7 @@
                 <a href="{{ route('alumni.dashboard') }}" class="alumni-nav__brand">JeeSI</a>
 
                 <a href="{{ route('alumni.dashboard') }}"
-                   class="alumni-nav__link {{ request()->routeIs('alumni.dashboard') ? 'is-active' : '' }}">
+                   class="alumni-nav__link {{ request()->routeIs('alumni.dashboard', 'alumni.lowongan.*') ? 'is-active' : '' }}">
                     Dashboard
                 </a>
 
