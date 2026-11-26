@@ -19,6 +19,10 @@ class Lowongan extends Model
         'posisi',
         'deskripsi',
         'kriteria_kandidat',
+        'status_verifikasi',
+        'catatan_admin',
+        'created_at',
+        'updated_at',
     ];
 
     protected function casts(): array

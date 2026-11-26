@@ -18,6 +18,9 @@ class Lamaran extends Model
         'id_lowongan',
         'id_portofolio',
         'cover_letter',
+        'status_lamaran',
+        'created_at',
+        'updated_at',
     ];
 
     protected function casts(): array

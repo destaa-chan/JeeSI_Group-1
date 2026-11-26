@@ -19,6 +19,8 @@ class Perusahaan extends Model
         'nama_perusahaan',
         'alamat',
         'deskripsi',
+        'created_at',
+        'updated_at',
     ];
 
     protected function casts(): array
