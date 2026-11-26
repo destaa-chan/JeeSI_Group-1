@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/css/admin/admin.css',
                 'resources/css/alumni/alumni.css',
+                'resources/css/perusahaan/perusahaan.css',
                 'resources/js/app.js',
             ],
             refresh: true,

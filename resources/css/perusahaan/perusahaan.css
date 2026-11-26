@@ -1,0 +1,624 @@
+/* ==========================================================
+   JeeSI - Area Perusahaan
+   CSS murni, di-build lewat Vite (lihat vite.config.js).
+   Palette & token sama dengan resources/css/alumni/alumni.css
+   ========================================================== */
+
+:root {
+    /* Palette: Cocoa Kiss */
+    --bitter-cocoa: #362320;
+    --wine-cherry: #57091d;
+    --cherry-red: #890524;
+    --truffle-dust: #6a4e4a;
+    --icing-mist: #d0d1c9;
+
+    /* Pemetaan ke komponen */
+    --bg-page: var(--icing-mist);
+    --bg-surface: #ecede8;
+    --bg-nav: var(--bitter-cocoa);
+    --text: var(--bitter-cocoa);
+    --text-muted: var(--truffle-dust);
+    --text-nav: #ffffff;
+    --text-nav-muted: #b9aaa6;
+    --border: color-mix(in srgb, var(--truffle-dust) 35%, var(--icing-mist));
+    --border-strong: var(--bitter-cocoa);
+    --btn-bg: var(--wine-cherry);
+    --btn-bg-hover: var(--cherry-red);
+
+    /* Status */
+    --success-bg: #eaf3ec;
+    --success-border: #5a8f68;
+    --success-text: #25623a;
+    --warning-bg: #f7f1e3;
+    --warning-border: #a67c2e;
+    --warning-text: #755315;
+    --danger-bg: #f3e2e4;
+    --danger-border: var(--cherry-red);
+    --danger-text: var(--cherry-red);
+    --radius: 4px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Figtree', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg-page);
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ---------- Navbar ---------- */
+.perusahaan-nav {
+    background: var(--bg-nav);
+    color: var(--text-nav);
+}
+
+.perusahaan-nav__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.perusahaan-nav__left,
+.perusahaan-nav__right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.perusahaan-nav__brand {
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+    color: var(--text-nav);
+}
+
+.perusahaan-nav__link {
+    font-size: 12px;
+    color: var(--text-nav-muted);
+    padding: 13px 0 11px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease;
+}
+
+.perusahaan-nav__link:hover {
+    color: var(--text-nav);
+}
+
+.perusahaan-nav__link.is-active {
+    color: var(--text-nav);
+    border-bottom-color: var(--icing-mist);
+}
+
+.perusahaan-nav__role {
+    font-size: 12px;
+    color: var(--text-nav);
+}
+
+.perusahaan-nav__logout {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 12px;
+    color: var(--text-nav);
+    cursor: pointer;
+}
+
+.perusahaan-nav__logout:hover {
+    text-decoration: underline;
+}
+
+.perusahaan-nav__link:focus-visible,
+.perusahaan-nav__logout:focus-visible {
+    outline: 2px solid var(--icing-mist);
+    outline-offset: 2px;
+}
+
+/* ---------- Konten ---------- */
+.perusahaan-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.page-title {
+    margin: 0 0 14px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.page-head .page-title {
+    margin-bottom: 0;
+}
+
+/* ---------- Kartu statistik ---------- */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.stat-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 12px;
+    text-align: center;
+}
+
+.stat-card__value {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.stat-card__label {
+    display: block;
+    margin-top: 2px;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+/* ---------- Panel (kotak section) ---------- */
+.panel {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 14px;
+}
+
+.panel__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.panel__title {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.panel__link {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.panel__link:hover {
+    color: var(--cherry-red);
+    text-decoration: underline;
+}
+
+/* ---------- Daftar item ---------- */
+.job-list {
+    list-style: none;
+    margin: 0 0 10px;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.job-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.job-item__title {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.job-item__meta {
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.job-item__criteria {
+    margin: 2px 0 0;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.job-item__action {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* ---------- Ringkasan profil ---------- */
+.profile-summary {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-muted);
+    display: grid;
+    gap: 4px;
+}
+
+.profile-summary strong {
+    color: var(--text);
+}
+
+/* ---------- Tabel ---------- */
+.table-wrap {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    background: #fff;
+}
+
+.table th,
+.table td {
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid var(--border);
+    vertical-align: top;
+}
+
+.table th {
+    font-weight: 700;
+    background: var(--bg-surface);
+    white-space: nowrap;
+}
+
+.table a {
+    color: var(--wine-cherry);
+    font-weight: 500;
+}
+
+.table a:hover {
+    text-decoration: underline;
+}
+
+.table__empty {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 16px 10px;
+}
+
+.table__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    white-space: nowrap;
+}
+
+/* ---------- Notifikasi / alert ---------- */
+.notice {
+    padding: 8px 12px;
+    margin-bottom: 14px;
+    font-size: 11px;
+    border: 1px dashed;
+    border-radius: 2px;
+}
+
+.notice a {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.notice--success {
+    background: var(--success-bg);
+    border-color: var(--success-border);
+    color: var(--success-text);
+}
+
+.notice--warning {
+    background: var(--warning-bg);
+    border-color: var(--warning-border);
+    color: var(--warning-text);
+}
+
+.notice--danger {
+    background: var(--danger-bg);
+    border-color: var(--danger-border);
+    color: var(--danger-text);
+}
+
+.notice--muted {
+    background: var(--bg-surface);
+    border-color: var(--truffle-dust);
+    color: var(--truffle-dust);
+}
+
+/* ---------- Tombol ---------- */
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    background: var(--btn-bg);
+    border: 1px solid var(--btn-bg);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.15s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background: var(--btn-bg-hover);
+}
+
+.btn--outline {
+    color: var(--text);
+    background: transparent;
+    border-color: var(--border-strong);
+}
+
+.btn--outline:hover {
+    color: #fff;
+    background: var(--bitter-cocoa);
+}
+
+.btn--sm {
+    padding: 4px 9px;
+    font-size: 11px;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--cherry-red);
+    outline-offset: 2px;
+}
+
+/* ---------- Paginasi ---------- */
+.pager {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0 0;
+}
+
+/* ---------- Form ---------- */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 16px;
+}
+
+.form-grid--single {
+    grid-template-columns: 1fr;
+}
+
+.form-group {
+    min-width: 0;
+    margin-bottom: 12px;
+}
+
+.form-grid .form-group {
+    margin-bottom: 0;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 7px 10px;
+    font: inherit;
+    font-size: 12px;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-control::placeholder {
+    color: color-mix(in srgb, var(--truffle-dust) 60%, #fff);
+}
+
+.form-control:focus {
+    outline: 2px solid var(--wine-cherry);
+    outline-offset: 0;
+    border-color: var(--wine-cherry);
+}
+
+.form-control.is-invalid {
+    border-color: var(--danger-border);
+    background: var(--danger-bg);
+}
+
+.form-error {
+    margin: 4px 0 0;
+    font-size: 11px;
+    color: var(--danger-text);
+}
+
+.form-hint {
+    margin: 8px 0 0;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.link-danger {
+    padding: 0;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--cherry-red);
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.link-danger:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Badge status ---------- */
+.badge-status {
+    display: inline-block;
+    padding: 1px 10px;
+    font-size: 11px;
+    border: 1px solid var(--truffle-dust);
+    border-radius: 999px;
+    color: var(--truffle-dust);
+    white-space: nowrap;
+}
+
+.badge-status--pending {
+    border-color: var(--warning-border);
+    background: var(--warning-bg);
+    color: var(--warning-text);
+}
+
+.badge-status--approved,
+.badge-status--diundang,
+.badge-status--diterima {
+    border-color: var(--success-border);
+    background: var(--success-bg);
+    color: var(--success-text);
+}
+
+.badge-status--rejected,
+.badge-status--ditolak {
+    border-color: var(--danger-border);
+    background: var(--danger-bg);
+    color: var(--danger-text);
+}
+
+.badge-status--dilihat {
+    border-color: var(--bitter-cocoa);
+    color: var(--bitter-cocoa);
+}
+
+/* ---------- Detail ---------- */
+.detail-label {
+    margin: 12px 0 2px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.detail-label:first-child {
+    margin-top: 0;
+}
+
+.detail-text {
+    margin: 0;
+    font-size: 12px;
+    white-space: pre-line;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 16px;
+}
+
+.inline-form {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.inline-form .form-group {
+    margin-bottom: 0;
+    min-width: 220px;
+}
+
+/* ---------- Responsif ---------- */
+@media (max-width: 640px) {
+    .perusahaan-nav__inner {
+        padding: 8px 16px;
+    }
+
+    .perusahaan-nav__left,
+    .perusahaan-nav__right {
+        gap: 14px;
+    }
+
+    .perusahaan-main {
+        padding: 16px;
+    }
+
+    .stat-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .form-grid,
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .job-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .panel__head .btn {
+        width: auto;
+    }
+}
