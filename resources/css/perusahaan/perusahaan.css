@@ -1,0 +1,636 @@
+/* ==========================================================
+   JeeSI - Area Perusahaan (UI-002, UI-007, UI-008)
+   CSS murni, di-build lewat Vite (lihat vite.config.js).
+   Palette & token sama dengan resources/css/admin/admin.css
+   ========================================================== */
+
+:root {
+    /* Palette: Cocoa Kiss */
+    --bitter-cocoa: #362320;
+    --wine-cherry: #57091d;
+    --cherry-red: #890524;
+    --truffle-dust: #6a4e4a;
+    --icing-mist: #d0d1c9;
+
+    /* Pemetaan ke komponen */
+    --bg-page: var(--icing-mist);
+    --bg-surface: #ecede8; /* tint terang dari Icing Mist */
+    --bg-nav: var(--bitter-cocoa);
+    --text: var(--bitter-cocoa);
+    --text-muted: var(--truffle-dust);
+    --text-nav: #ffffff;
+    --text-nav-muted: #b9aaa6;
+    --border: color-mix(in srgb, var(--truffle-dust) 35%, var(--icing-mist));
+    --border-strong: var(--bitter-cocoa);
+    --btn-bg: var(--wine-cherry);
+    --btn-bg-hover: var(--cherry-red);
+
+    /* Status */
+    --success-bg: #eaf3ec;
+    --success-border: #5a8f68;
+    --success-text: #25623a;
+    --warning-bg: #fff8e6;
+    --warning-border: #d4a329;
+    --warning-text: #8a6500;
+    --danger-bg: #f3e2e4;
+    --danger-border: var(--cherry-red);
+    --danger-text: var(--cherry-red);
+    --radius: 4px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Figtree', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg-page);
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ---------- Navbar Perusahaan ---------- */
+.perusahaan-nav {
+    background: var(--bg-nav);
+    color: var(--text-nav);
+}
+
+.perusahaan-nav__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.perusahaan-nav__left,
+.perusahaan-nav__right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.perusahaan-nav__brand {
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+    color: var(--text-nav);
+}
+
+.perusahaan-nav__link {
+    font-size: 12px;
+    color: var(--text-nav-muted);
+    padding: 13px 0 11px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease;
+}
+
+.perusahaan-nav__link:hover {
+    color: var(--text-nav);
+}
+
+.perusahaan-nav__link.is-active {
+    color: var(--text-nav);
+    border-bottom-color: var(--icing-mist);
+}
+
+.perusahaan-nav__role {
+    font-size: 12px;
+    color: var(--text-nav);
+}
+
+.perusahaan-nav__logout {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 12px;
+    color: var(--text-nav);
+    cursor: pointer;
+}
+
+.perusahaan-nav__logout:hover {
+    text-decoration: underline;
+}
+
+.perusahaan-nav__link:focus-visible,
+.perusahaan-nav__logout:focus-visible {
+    outline: 2px solid var(--icing-mist);
+    outline-offset: 2px;
+}
+
+/* ---------- Konten ---------- */
+.perusahaan-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.page-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.page-subtitle {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ---------- Kartu statistik ---------- */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.stat-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 12px;
+    text-align: center;
+}
+
+.stat-card__value {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.stat-card__label {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+/* ---------- Panel (kotak section) ---------- */
+.panel {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin-bottom: 16px;
+}
+
+.panel__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.panel__title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.panel__link {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.panel__link:hover {
+    color: var(--cherry-red);
+    text-decoration: underline;
+}
+
+/* ---------- Grid 2 Kolom ---------- */
+.grid-2col {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.grid-equal {
+    grid-template-columns: 1fr 1fr;
+}
+
+/* ---------- Tabel ---------- */
+.table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #fff;
+    margin-bottom: 12px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    background: #fff;
+}
+
+.table th,
+.table td {
+    padding: 9px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.table th {
+    font-weight: 700;
+    background: var(--bg-surface);
+    color: var(--bitter-cocoa);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.table tr:last-child td {
+    border-bottom: 0;
+}
+
+.table tr:hover td {
+    background-color: #fafbf9;
+}
+
+.table a {
+    color: var(--wine-cherry);
+    font-weight: 600;
+}
+
+.table a:hover {
+    text-decoration: underline;
+}
+
+.table__empty {
+    text-align: center;
+    padding: 24px 12px;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* ---------- Notifikasi / alert ---------- */
+.notice {
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    border: 1px dashed;
+    border-radius: var(--radius);
+    line-height: 1.4;
+}
+
+.notice a {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.notice--success {
+    background: var(--success-bg);
+    border-color: var(--success-border);
+    color: var(--success-text);
+}
+
+.notice--warning {
+    background: var(--warning-bg);
+    border-color: var(--warning-border);
+    color: var(--warning-text);
+}
+
+.notice--danger {
+    background: var(--danger-bg);
+    border-color: var(--danger-border);
+    color: var(--danger-text);
+}
+
+.notice--muted {
+    background: var(--bg-surface);
+    border-color: var(--truffle-dust);
+    color: var(--truffle-dust);
+}
+
+/* ---------- Tombol ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 14px;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--btn-bg);
+    border: 1px solid var(--btn-bg);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: var(--btn-bg-hover);
+    border-color: var(--btn-bg-hover);
+    color: #fff;
+}
+
+.btn--sm {
+    padding: 4px 8px;
+    font-size: 11px;
+}
+
+.btn--outline {
+    color: var(--text);
+    background: transparent;
+    border-color: var(--border-strong);
+}
+
+.btn--outline:hover {
+    color: #fff;
+    background: var(--bitter-cocoa);
+    border-color: var(--bitter-cocoa);
+}
+
+.btn--secondary {
+    color: var(--bitter-cocoa);
+    background: var(--bg-surface);
+    border-color: var(--border);
+}
+
+.btn--secondary:hover {
+    background: color-mix(in srgb, var(--border) 40%, #fff);
+    color: var(--bitter-cocoa);
+}
+
+.btn--success {
+    background: #25623a;
+    border-color: #25623a;
+    color: #fff;
+}
+
+.btn--success:hover {
+    background: #1c4b2c;
+    border-color: #1c4b2c;
+}
+
+.btn--danger {
+    background: var(--cherry-red);
+    border-color: var(--cherry-red);
+    color: #fff;
+}
+
+.btn--danger:hover {
+    background: #6a041c;
+    border-color: #6a041c;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--cherry-red);
+    outline-offset: 2px;
+}
+
+.btn-group {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+}
+
+/* ---------- Badge Status ---------- */
+.badge-status {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 999px;
+    border: 1px solid var(--truffle-dust);
+    color: var(--truffle-dust);
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.badge-status--pending,
+.badge-status--terkirim {
+    border-color: var(--warning-border);
+    background: var(--warning-bg);
+    color: var(--warning-text);
+}
+
+.badge-status--dilihat {
+    border-color: var(--bitter-cocoa);
+    background: #fff;
+    color: var(--bitter-cocoa);
+}
+
+.badge-status--approved,
+.badge-status--diundang,
+.badge-status--diterima {
+    border-color: var(--success-border);
+    background: var(--success-bg);
+    color: var(--success-text);
+}
+
+.badge-status--rejected,
+.badge-status--ditolak {
+    border-color: var(--danger-border);
+    background: var(--danger-bg);
+    color: var(--danger-text);
+}
+
+/* ---------- Form ---------- */
+.form-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 16px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 18px;
+}
+
+.form-group {
+    min-width: 0;
+    margin-bottom: 14px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--bitter-cocoa);
+}
+
+.form-label .required {
+    color: var(--cherry-red);
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 8px 11px;
+    font: inherit;
+    font-size: 12px;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 0.15s ease, outline 0.15s ease;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.5;
+}
+
+.form-control::placeholder {
+    color: color-mix(in srgb, var(--truffle-dust) 60%, #fff);
+}
+
+.form-control:focus {
+    outline: 2px solid var(--wine-cherry);
+    outline-offset: 0;
+    border-color: var(--wine-cherry);
+}
+
+.form-control.is-invalid {
+    border-color: var(--danger-border);
+    background: var(--danger-bg);
+}
+
+.form-error {
+    margin: 4px 0 0;
+    font-size: 11px;
+    color: var(--danger-text);
+}
+
+.form-hint {
+    margin: 5px 0 0;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+/* ---------- Detail & Cards ---------- */
+.detail-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin-bottom: 14px;
+}
+
+.detail-card__title {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--bitter-cocoa);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+}
+
+.detail-list {
+    display: grid;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.detail-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 8px;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.detail-value {
+    color: var(--text);
+}
+
+.prose {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--text);
+    white-space: pre-line;
+}
+
+/* ---------- Responsif ---------- */
+@media (max-width: 768px) {
+    .perusahaan-nav__inner {
+        padding: 8px 16px;
+    }
+
+    .perusahaan-nav__left,
+    .perusahaan-nav__right {
+        gap: 12px;
+    }
+
+    .perusahaan-main {
+        padding: 16px;
+    }
+
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .grid-2col {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-item {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
+}

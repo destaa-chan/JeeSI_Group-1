@@ -1,0 +1,588 @@
+/* ==========================================================
+   JeeSI - Area Admin (UI-002 Dashboard Admin, UI-009 Verifikasi)
+   CSS murni, di-build lewat Vite (lihat vite.config.js)
+   ========================================================== */
+
+:root {
+    /* Palette: Cocoa Kiss */
+    --bitter-cocoa: #362320;
+    --wine-cherry: #57091d;
+    --cherry-red: #890524;
+    --truffle-dust: #6a4e4a;
+    --icing-mist: #d0d1c9;
+
+    /* Pemetaan ke komponen */
+    --bg-page: var(--icing-mist);
+    --bg-surface: #ecede8; /* tint terang dari Icing Mist */
+    --bg-nav: var(--bitter-cocoa);
+    --text: var(--bitter-cocoa);
+    --text-muted: var(--truffle-dust);
+    --text-nav: #ffffff;
+    --text-nav-muted: #b9aaa6;
+    --border: color-mix(in srgb, var(--truffle-dust) 35%, var(--icing-mist));
+    --border-strong: var(--bitter-cocoa);
+    --btn-bg: var(--wine-cherry);
+    --btn-bg-hover: var(--cherry-red);
+
+    /* Status: merah memakai Cherry Red dari palette, hijau tetap semantik */
+    --success-bg: #eaf3ec;
+    --success-border: #5a8f68;
+    --success-text: #25623a;
+    --warning-bg: #fff8e6;
+    --warning-border: #d4a329;
+    --warning-text: #8a6500;
+    --danger-bg: #f3e2e4;
+    --danger-border: var(--cherry-red);
+    --danger-text: var(--cherry-red);
+    --radius: 4px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Figtree', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg-page);
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ---------- Navbar ---------- */
+.admin-nav {
+    background: var(--bg-nav);
+    color: var(--text-nav);
+}
+
+.admin-nav__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.admin-nav__left,
+.admin-nav__right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.admin-nav__brand {
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+    color: var(--text-nav);
+}
+
+.admin-nav__link {
+    font-size: 12px;
+    color: var(--text-nav-muted);
+    padding: 13px 0 11px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease;
+}
+
+.admin-nav__link:hover {
+    color: var(--text-nav);
+}
+
+.admin-nav__link.is-active {
+    color: var(--text-nav);
+    border-bottom-color: var(--icing-mist);
+}
+
+.admin-nav__role {
+    font-size: 12px;
+    color: var(--text-nav);
+}
+
+.admin-nav__logout {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 12px;
+    color: var(--text-nav);
+    cursor: pointer;
+}
+
+.admin-nav__logout:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Konten ---------- */
+.admin-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-title {
+    margin: 0 0 14px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+/* ---------- Kartu statistik ---------- */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.stat-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 12px;
+    text-align: center;
+}
+
+.stat-card__value {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.stat-card__label {
+    display: block;
+    margin-top: 2px;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+/* ---------- Notifikasi / alert ---------- */
+.notice {
+    padding: 8px 12px;
+    margin-bottom: 14px;
+    font-size: 11px;
+    border: 1px dashed;
+    border-radius: 2px;
+}
+
+.notice--success {
+    background: var(--success-bg);
+    border-color: var(--success-border);
+    color: var(--success-text);
+}
+
+.notice--danger {
+    background: var(--danger-bg);
+    border-color: var(--danger-border);
+    color: var(--danger-text);
+}
+
+.notice--muted {
+    background: var(--bg-surface);
+    border-color: var(--truffle-dust);
+    color: var(--truffle-dust);
+}
+
+/* ---------- Tombol ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 14px;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--btn-bg);
+    border: 1px solid var(--btn-bg);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: var(--btn-bg-hover);
+    border-color: var(--btn-bg-hover);
+    color: #fff;
+}
+
+.btn--sm {
+    padding: 4px 8px;
+    font-size: 11px;
+}
+
+.btn--outline {
+    color: var(--text);
+    background: transparent;
+    border-color: var(--border-strong);
+}
+
+.btn--outline:hover {
+    color: #fff;
+    background: var(--bitter-cocoa);
+    border-color: var(--bitter-cocoa);
+}
+
+.btn--secondary {
+    color: var(--bitter-cocoa);
+    background: var(--bg-surface);
+    border-color: var(--border);
+}
+
+.btn--secondary:hover {
+    background: color-mix(in srgb, var(--border) 40%, #fff);
+}
+
+.btn--success {
+    background: #25623a;
+    border-color: #25623a;
+    color: #fff;
+}
+
+.btn--success:hover {
+    background: #1c4b2c;
+    border-color: #1c4b2c;
+}
+
+.btn--danger {
+    background: var(--cherry-red);
+    border-color: var(--cherry-red);
+    color: #fff;
+}
+
+.btn--danger:hover {
+    background: #6a041c;
+    border-color: #6a041c;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--cherry-red);
+    outline-offset: 2px;
+}
+
+.admin-nav__link:focus-visible,
+.admin-nav__logout:focus-visible {
+    outline: 2px solid var(--icing-mist);
+    outline-offset: 2px;
+}
+
+/* ---------- Tabs Verifikasi ---------- */
+.admin-tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 16px;
+}
+
+.admin-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.15s ease;
+    text-decoration: none;
+}
+
+.admin-tab:hover {
+    color: var(--bitter-cocoa);
+}
+
+.admin-tab.is-active {
+    color: var(--wine-cherry);
+    border-bottom-color: var(--wine-cherry);
+}
+
+/* ---------- Tabel ---------- */
+.table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #fff;
+    margin-bottom: 14px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    background: #fff;
+}
+
+.table th,
+.table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.table th {
+    font-weight: 700;
+    background: var(--bg-surface);
+    color: var(--bitter-cocoa);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.table tr:last-child td {
+    border-bottom: 0;
+}
+
+.table tr:hover td {
+    background-color: #fafbf9;
+}
+
+.table a {
+    color: var(--wine-cherry);
+    font-weight: 600;
+}
+
+.table a:hover {
+    text-decoration: underline;
+}
+
+.table__empty {
+    text-align: center;
+    padding: 28px 12px;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* ---------- Badge Status ---------- */
+.badge-status {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 999px;
+    border: 1px solid var(--truffle-dust);
+    color: var(--truffle-dust);
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.badge-status--pending {
+    border-color: var(--warning-border);
+    background: var(--warning-bg);
+    color: var(--warning-text);
+}
+
+.badge-status--approved {
+    border-color: var(--success-border);
+    background: var(--success-bg);
+    color: var(--success-text);
+}
+
+.badge-status--rejected {
+    border-color: var(--danger-border);
+    background: var(--danger-bg);
+    color: var(--danger-text);
+}
+
+/* ---------- Detail & Cards Verifikasi ---------- */
+.panel {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin-bottom: 16px;
+}
+
+.panel__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.panel__title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.grid-2col {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.detail-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin-bottom: 14px;
+}
+
+.detail-card__title {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--bitter-cocoa);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+}
+
+.detail-list {
+    display: grid;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.detail-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 8px;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.detail-value {
+    color: var(--text);
+}
+
+.prose {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--text);
+    white-space: pre-line;
+}
+
+/* ---------- Checklist Kriteria Verifikasi (SDD UI-009) ---------- */
+.checklist-box {
+    background: #fafbf9;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+    margin-bottom: 14px;
+}
+
+.checklist-title {
+    margin: 0 0 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--bitter-cocoa);
+}
+
+.checklist-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin: 0 0 10px;
+}
+
+.checklist-items {
+    display: grid;
+    gap: 8px;
+}
+
+.checklist-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checklist-label input[type="checkbox"] {
+    margin-top: 2px;
+    accent-color: var(--wine-cherry);
+}
+
+/* ---------- Form Elements Admin ---------- */
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--bitter-cocoa);
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    font: inherit;
+    font-size: 12px;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-control:focus {
+    outline: 2px solid var(--wine-cherry);
+    border-color: var(--wine-cherry);
+}
+
+.form-hint {
+    margin: 4px 0 0;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+/* ---------- Responsif ---------- */
+@media (max-width: 640px) {
+    .admin-nav__inner {
+        padding: 8px 16px;
+    }
+
+    .admin-nav__left,
+    .admin-nav__right {
+        gap: 14px;
+    }
+
+    .admin-main {
+        padding: 16px;
+    }
+
+    .stat-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
